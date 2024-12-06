@@ -211,4 +211,36 @@ footer img {
     padding: 5px;
 
     }
+
+    .cabecalho {
+
+        display: none;
+    }
+
+    #cabecalho-mobile {
+        height: 100vh;
+        width: 100%;
+        background-color: black;
+        position: fixed;
+
+    }
+
+    #cabecalho-mobile nav {
+
+        display: flex;
+        flex-direction: column;
+        padding-top: 20vh;
+        padding-left: 15px;
+        
+    }
+
+    #cabecalho-mobile nav a {
+
+        color: white;
+        font-size: 4em;
+        margin-bottom: 40px;
+
+    }
+
+
 }
