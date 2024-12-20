@@ -1,145 +1,163 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ReforçoFlix</title>
-    <link rel="stylesheet" href="../styles/global.css">
+    <title>SENAIFLIX - Filmes e Séries</title>
+    <link rel="stylesheet" href="../assets/styles/global.css">
+    <script src="script.js"></script>
+
 </head>
 <body>
 
     <header class="cabecalho">
 
-        <div class="reforcoflix">ReforçoFlix</div>
-
-
         <div>
-            <a class="link" href="">Inicio</a>
-            <a class="link" href="">Séries</a>
-            <a class="link" href="">Filmes</a>
-        </div>
-        
-   
-    </header>
+            
+            <a class="logo" href="../home/">SENAIFLIX</a>
 
+        </div>
+
+        <nav>
+
+            <a href="#">Início</a>
+            <a href="#titulo-filmes">Filmes</a>
+            <a href="#titulo-series">Séries</a>
+
+        </nav>
+        
+    </header>
+    
     <header id="cabecalho-mobile">
 
-        <button class="botao-de-fechar">
-            
-            <img src="../imagens/xmark-solid.svg" alt="">
+        <button class="botao-de-fechar" onclick="fecharCabecalhoMobile()">
+
+            <img src="../assets/imgs/xmark-solid.svg">
 
         </button>
 
         <nav>
 
-            <a href="#">Inicio</a>
-            <a href="#">Filmes</a>
-            <a href="#">séries</a>
+            <a href="#" onclick="fecharCabecalhoMobile()">Início</a>
+            <a href="#titulo-filmes" onclick="fecharCabecalhoMobile()">Filmes</a>
+            <a href="#titulo-series" onclick="fecharCabecalhoMobile()">Séries</a>
 
         </nav>
 
     </header>
 
+    <button class="menu-de-hamburguer" onclick="abrirCabecalhoMobile()">
+
+        <img src="../assets/imgs/bars-solid.svg" alt="Menu de hamburguer">
+
+    </button>
+
     <main>
 
-        <div class="banner">
-            <h1>Pantera Negra 2</h1>
-            <p>Após a morte do rei T'Challa, Wakanda se encontra em um momento de luto profundo, não apenas pela perda de seu monarca, mas também pela instabilidade global que essa morte provoca. A trama começa com a revelação de que T'Challa faleceu devido a uma doença misteriosa, que não é especificada, mas que coloca em risco o equilíbrio do país. Sua mãe, Ramonda (Angela Bassett), assume a liderança de Wakanda, enfrentando as pressões externas e internas para proteger o legado de seu filho e garantir a segurança do vibranium, um recurso que é cada vez mais cobiçado por potências internacionais.</p>
-    
-    
-        </div>
+        <section class="banner">
 
-        <div class="filmes-series">
-            
-            <div class="inputs"> <!--Rótulo-->
+            <div class="textos">
+
+                <h1>Thor Ragnarok!</h1>        
+                <p>Thor: Ragnarok (2017) é o terceiro filme da franquia solo de Thor no Universo Cinematográfico da Marvel, dirigido por Taika Waititi. A história começa quando Thor descobre que sua irmã perdida, Hela, a poderosa deusa da morte, escapou de sua prisão e está determinada a conquistar Asgard, desencadeando o apocalipse conhecido como Ragnarok.</p>
+
+            </div>
+
+            <div class="gradiente-de-baixo"></div>
+
+        </section>
+
+        <section class="filmes-series">
+
+            <div class="inputs">
 
                 <label>
-
                     Pesquise por filmes e/ou séries:
-                    <input type="text" placeholder="Insira um texto">
-
+                    <input 
+                        onkeyup="aoPesquisarPorTitulo(this.value)" placeholder="Insira um título"
+                    ></input>
                 </label>
-
-                <label>
-
-                    Filtrar por gênero:
-                    
-                    <select>
-
-                        <option value="">Selecione um gênero:</option>
-
-                        <option value="">Gênero 1</option>
-                        <option value="">Gênero 2</option>
-                        <option value="">Gênero 3</option>
-                        <option value="">Gênero 4</option>
-                        
-
-                    </select>
-
-                </label>
-
-            </div>
-
-            <h2>Filmes</h2>
-
-            <div class="card">
-                <a class="card">
-                    <img src="../imagens/capa da barbie.jpg" alt="">
-                </a>
-                <a class="card">
-                    <img src="../imagens/avatar.webp" alt="">
-                </a>
-                <a class="card">
-                    <img src="../imagens/deadpool.jpg" alt="">
-                </a>
-                <a class="card">
-                    <img src="../imagens/capa da barbie.jpg" alt="">
-                </a>
-                <a class="card">
-                    <img src="../imagens/avatar.webp" alt="">
-                </a>
-                <a class="card">
-                    <img src="../imagens/deadpool.jpg" alt="">
-                </a>
                 
+                <label>
+                    Filtrar por gênero:
+                    <select name="genero" onchange="aoFiltrarPorGenero(this.value)">
+                        <option selected value="">Selecione um gênero</option>
+                        <option value="Drama">Drama</option>
+                        <option value="Romance">Romance</option>
+                        <option value="Terror">Terror</option>
+                        <option value="Ficção científica">Ficção científica</option>
+                        <option value="Thriller">Thriller</option>
+                        <option value="Ação">Ação</option>
+                        <option value="Comédia">Comédia</option>
+                        <option value="Animação">Animação</option>
+                        <option value="Aventura">Aventura</option>
+                        <option value="Crime">Crime</option>
+                        <option value="Fantasia">Fantasia</option>
+                        <option value="Mistério">Mistério</option>
+                        <option value="Sci-Fi & Fantasy">Sci-Fi & Fantasy</option>
+                    </select>
+                </label>
+
+                <button class="limparFiltros" onclick="limparFiltros()">Limpar filtros</button>
 
             </div>
 
-            <h2>Séries</h2>
+            <h2 id="titulo-filmes">Filmes</h2>
 
-            <div class="card">
-                <a class="card">
-                    <img src="../imagens/capa da barbie.jpg" alt="">
-                </a>
-                <a class="card">
-                    <img src="../imagens/avatar.webp" alt="">
-                </a>
-                <a class="card">
-                    <img src="../imagens/deadpool.jpg" alt="">
-                </a>
-                <a class="card">
-                    <img src="../imagens/capa da barbie.jpg" alt="">
-                </a>
-                <a class="card">
-                    <img src="../imagens/avatar.webp" alt="">
-                </a>
-                <a class="card">
-                    <img src="../imagens/deadpool.jpg" alt="">
-                </a>
+            <div id="filmes-card-container" class="card-container">
+
+                <a href="../detalhes-do-filme/" class="card"></a>
+                <a href="../detalhes-do-filme/" class="card"></a>                
+                <a href="../detalhes-do-filme/" class="card"></a>
+                <a href="../detalhes-do-filme/" class="card"></a>
+                <a href="../detalhes-do-filme/" class="card"></a>
+                <a href="../detalhes-do-filme/" class="card"></a>
 
             </div>
+            
+        </section>
 
-           
+        <section class="filmes-series">
 
-        </div>
+            <h2 id="titulo-series">Séries</h2>
+
+            <div id="series-card-container" class="card-container">
+
+                <a href="../detalhes-do-filme/" class="card"></a>
+                <a href="../detalhes-do-filme/" class="card"></a>
+                <a href="../detalhes-do-filme/" class="card"></a>
+                <a href="../detalhes-do-filme/" class="card"></a>
+                <a href="../detalhes-do-filme/" class="card"></a>
+                <a href="../detalhes-do-filme/" class="card"></a>
+
+            </div>
+            
+        </section>
 
     </main>
 
-
     <footer>
-        <img src="../imagens/facebook-brands-solid.svg" alt="">
-        <img src="../imagens/twitter-brands-solid.svg" alt="">
-        <img src="../imagens/instagram-brands-solid (1).svg" alt="">
+
+        <script>
+
+            carregarFilmes();
+            carregarSeries();
+
+        </script>
+
+        <p>Siga-nos nas redes sociais.</p>
+
+        <div class="icons-container">
+
+            <img src="../assets/imgs/twitter-brands-solid.svg" alt="ícone do facebook.">
+
+            <img src="../assets/imgs/twitter-brands-solid.svg" alt="ícone do instagram.">
+
+            <img src="../assets/imgs/twitter-brands-solid.svg" alt="ícone do twitter.">
+        
+        </div>
+
     </footer>
 
 </body>
